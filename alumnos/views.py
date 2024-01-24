@@ -62,7 +62,19 @@ def alumnos_del(request, pk):
 def index(request):
     alumnos = Alumno.objects.all()
     form = AlumnoForm()
-    context={"alumnos": alumnos, 'form': form}
+
+   
     
+    if request.method == 'POST':
+        request.session["email"]="ju.azocar@profesor.duoc.cl"
+        print("por el post")
+    else: 
+        request.session["email"]="No autenticado"
+        print("por el get")
+    
+    email = request.session["email"]
+
+    context={"alumnos": alumnos, 'form': form, 'email':email}
+
 
     return render(request, 'alumnos/index.html', context)
