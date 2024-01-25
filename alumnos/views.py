@@ -1,13 +1,18 @@
 from django.shortcuts import render
 from .models import Alumno, Genero
 from .forms import GeneroForm, AlumnoForm
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
+# Create your views here.
+@login_required
 def crud(request):
     alumnos = Alumno.objects.all()
     context = {'alumnos':alumnos}
     return render(request, 'alumnos/alumnos_list.html', context)
 
+@login_required
 def alumnosAdd(request):
     print(request.method)
     if request.method != "POST":
@@ -43,6 +48,7 @@ def alumnosAdd(request):
         context = {'mensaje': 'Ok, datos grabados...'}
         return render(request, 'alumnos/alumnos_add.html', context)
 
+@login_required
 def alumnos_del(request, pk):
     context={}
     try:

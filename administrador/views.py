@@ -9,3 +9,11 @@ def menu(request):
     context= {'usuario':usuario}
     return render(request, 'administrador/menu.html', context)
     
+
+@login_required
+def quienes_somos(request):
+    request.session["usuario"]="jazocar"
+    usuario=request.session["usuario"]
+    context= {'usuario':usuario}
+    return render(request, 'administrador/quienes_somos.html', context)
+    

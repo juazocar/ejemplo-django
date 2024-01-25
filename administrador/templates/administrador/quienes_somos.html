@@ -3,10 +3,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quienes somos</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
+    <script src="{% static 'administrador/js/validaciones.js' %}"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,7 +34,7 @@
               <a class="nav-link" href="#">Pricing</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
+              <a class="nav-link" href="#">Quienes somos</a>
             </li>
             <li class="nav-item-dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -51,47 +51,12 @@
           </ul>
         </div>
       </nav>
-    <h1>Editar Datos de Alumnos</h1>
-    <br/>
-
-    <button type="button">
-        <a href="{% url 'alumnosAdd' %}">Agregar</a>
-    </button>
-
-    <div id="idMensajes">
-        {% if mensaje %}
-             {{mensaje}}           
-        {% endif %}
-    </div>
-
-    <table>
-        {% if alumnos %}
-            <th>Rut</th>
-            <th>Nombre</th>
-            <th>Apellido P.</th>
-            <th>Eliminar</th>
-            <th>Modificar</th>
-
-            {% for x in alumnos %}
-                <tr>
-                    <td> {{x.rut}} </td>    
-                    <td> {{x.nombre}} </td>
-                    <td> {{x.apellido_paterno}} </td>
-                    <td> <a href="{% url 'alumnos_del' pk=x.rut %}">Eliminar</a> </td>
-                    <td> <a href="#">Modificar</a> </td>
-                </tr>
-            {% endfor %}
-        {% endif %}  
-    </table>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
-    <script>
-        $(document).ready(function(){
-             $('#idMensajes').delay(2000).fadeOut("slow");    
-        });
-    </script>
+      <h1>¿Quiénes somos?</h1>
+     
+      <img src="{% static 'administrador/img/stark-craft-beer-garden.jpg' %}"></img>
+      <br><br>
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>
