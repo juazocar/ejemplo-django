@@ -21,5 +21,6 @@ class Alumno(models.Model):
     direccion        = models.CharField(max_length=50, blank=True, null=True)  
     activo           = models.IntegerField()
 
+
     def __str__(self):
         return str(self.nombre)+" "+str(self.apellido_paterno)   
